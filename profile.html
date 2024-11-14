@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+    :root {
+      --pink: #e84393;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      text-transform: capitalize;
+      transition: .2s linear;
+    }
+
+    html {
+      font-size: 62.5%;
+      scroll-behavior: smooth;
+      scroll-padding-top: 6rem;
+      overflow-x: hidden;
+
+    }
+
+    /* section of buy book */
+    section {
+      padding: 2rem 9%;
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 4rem;
+      color: #333;
+      padding: 1rem;
+      margin: 2rem 0;
+      background-color: pink;
+
+    }
+
+    .heading span {
+      color: var(--pink);
+      padding-left: 4px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      border-radius: 5rem;
+      background-color: #333;
+      color: #fff;
+      padding: 2rem 4rem;
+      cursor: pointer;
+      font-size: 1.7rem;
+
+    }
+
+    .btn:hover {
+      background-color: #e84393;
+    }
+
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      /* background-color: rgb(15, 78, 78); */
+      padding: 2rem 9%;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+      justify-content: space-between;
+      box-shadow: 0 .5rem 1rem rgb(0, 0, 0, 0.1);
+    }
+
+    header .logo {
+      font-size: 3rem;
+      color: #333;
+      font-weight: bolder;
+    }
+
+    header .logo span {
+      margin-top: 0.2rem;
+      color: var(--pink);
+    }
+
+    header .navbar a {
+      font-size: 2rem;
+      padding: 0 1.5rem;
+      color: #666;
+    }
+
+    header .navbar a:hover {
+      color: var(--pink);
+    }
+
+    header .icons a {
+      font-size: 3rem;
+      color: #333;
+      margin-left: 1.5rem;
+      padding-top: 4px;
+    }
+
+    header .icons a:hover {
+      color: var(--pink);
+    }
+
+    header #toggler {
+      display: none;
+    }
+
+    header .fa-bars {
+      font-size: 3rem;
+      color: #333;
+      border-radius: .5rem;
+      padding: .5rem 1.5rem;
+      cursor: pointer;
+      border: .1rem solid rgba(0, 0, 0, .2);
+      /* display: none; */
+    }
+
+    .home {
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('/images/new2.jpeg');
+      background-image: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home .content {
+      max-width: 50rem;
+    }
+
+    .home .content h3 {
+      font-size: 6rem;
+      color: #76717e;
+
+    }
+
+    .home .content span {
+      font-size: 3.5rem;
+      font-optical-sizing: 3rem;
+      padding: 1rem;
+      color: #e7e9e2;
+      line-height: 1.5;
+    }
+
+    .home .content p {
+      font-size: 2.5rem;
+      font-optical-sizing: 3rem;
+      padding-top: 1rem;
+      color: #9ab6a9;
+      line-height: 1.5;
+    }
+
+    .icons-container {
+      background: #eee;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+
+    }
+
+    .icons-container .icons {
+      background: #fff;
+      border: 1rem solid rgb(0, 0, 0, 0.1);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      flex-direction: 1 1 25rem;
+    }
+
+    .icons-container .icons img {
+      height: 5rem;
+      margin-right: 2rem;
+    }
+
+    .icons-container .icons h3 {
+      color: #2b6647;
+      padding-bottom: .5rem;
+      font-size: 1.5rem;
+    }
+
+    .icons-container .icons span {
+      color: #666;
+      font-size: 1.4rem;
+    }
+
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      background-color: #ffffff;
+      width: 80%;
+      max-width: 900px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Left section for Profile Picture */
+    .profile-picture-section {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-right: 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    .profile-picture-section img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .profile-picture-section button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .profile-picture-section button:hover {
+      background-color: #0056b3;
+    }
+
+    .profile-picture-section p {
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* Right section for Account Details */
+    .account-details-section {
+      width: 70%;
+      padding-left: 20px;
+    }
+
+    .account-details-section h2 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+      color: #555;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .save-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin-top: 20px;
+    }
+
+    .save-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* footer section */
+ /* Footer section layout */
+ 
+  </style>
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <header>
+
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+
+    <a href="#" class="logo">BOOK<span>STORE</span></a>
+
+    <nav class="navbar">
+      <a href="new.html">Home</a>
+      <!-- <a href="Cart1.html" target="none">Cart</a> -->
+
+      <a href="login.html ">Login</a>
+      <a href="register.html">register</a>
+
+      <span class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fa-solid fa-user"></a>
+        <a href="cart1.html" class="fas fa-shopping-cart" id="shopingcart"><span
+            style="font-size: 15px;">yourCart</span></a>
+      </span>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Profile Picture Section -->
+    <div class="profile-picture-section">
+      <!-- Image preview -->
+      <img id="profileImg" src="https://via.placeholder.com/120" alt="Profile Picture">
+
+      <!-- File input -->
+      <input type="file" id="imageInput" accept="image/png, image/jpeg" style="display: none;"
+        onchange="previewImage()">
+
+      <!-- Button to trigger file input -->
+      <button onclick="document.getElementById('imageInput').click();">Upload new image</button>
+      <p>JPG or PNG no larger than 5 MB</p>
+    </div>
+
+    <!-- Account Details Section -->
+    <div class="account-details-section">
+      <h2>Account Details</h2>
+
+      <!-- Username -->
+      <div class="form-group">
+        <div class="full-width">
+          <label for="username">Username (how your name will appear to other users on the site)</label>
+          <input type="text" id="username" placeholder="username">
+        </div>
+      </div>
+
+      <!-- First and Last Name -->
+      <div class="form-group">
+        <div class="full-width">
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" placeholder="First name">
+        </div>
+        <div class="full-width">
+          <label for="lastName">Last name</label>
+          <input type="text" id="lastName" placeholder="Last name">
+        </div>
+      </div>
+
+      <!-- Organization and Location -->
+      <div class="form-group">
+        <div class="full-width">
+          <label for="organization">Organization name</label>
+          <input type="text" id="organization" placeholder="Organization name">
+        </div>
+        <div class="full-width">
+          <label for="location">Location</label>
+          <input type="text" id="location" placeholder="Location">
+        </div>
+      </div>
+
+      <!-- Email and Phone Number -->
+      <div class="form-group">
+        <div class="full-width">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="name@example.com">
+        </div>
+        <div class="full-width">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" placeholder="555-123-4567">
+        </div>
+      </div>
+
+      <!-- Birthday -->
+      <div class="form-group">
+        <div class="full-width">
+          <label for="birthday">Birthday</label>
+          <input type="date" id="birthday">
+        </div>
+      </div>
+
+      <!-- Save Button -->
+      <button class="save-btn" onclick="saveProfile()">Save changes</button>
+    </div>
+  </div>
+   
+
+
+
+
+  <script>
+    // Function to preview image after upload
+    function previewImage() {
+      const fileInput = document.getElementById('imageInput');
+      const file = fileInput.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const imgElement = document.getElementById('profileImg');
+          imgElement.src = e.target.result; // Set the image source to the uploaded file
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Function to save profile data in localStorage
+    function saveProfile() {
+      // Get values from the form
+      const username = document.getElementById('username').value;
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const organization = document.getElementById('organization').value;
+      const location = document.getElementById('location').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const birthday = document.getElementById('birthday').value;
+      const profileImgSrc = document.getElementById('profileImg').src;
+
+      // Create profile object
+      const profile = {
+        username,
+        firstName,
+        lastName,
+        organization,
+        location,
+        email,
+        phone,
+        birthday,
+        profileImgSrc
+      };
+
+      // Retrieve existing profiles from localStorage
+      let profiles = JSON.parse(localStorage.getItem('profiles')) || [];
+
+      // Add the new profile to the profiles array
+      profiles.push(profile);
+
+      // Save the updated array back to localStorage
+      localStorage.setItem('profiles', JSON.stringify(profiles));
+
+      // Optionally, alert or log success
+      alert('Profile saved!');
+      console.log('Profiles:', profiles);
+    }
+  </script>
+
+  <script src="https://kit.fontawesome.com/57f3a2da0a.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

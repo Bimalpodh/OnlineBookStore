@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+  <link rel="stylesheet" href="/new.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,  100..700;1,100..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+    :root {
+      --pink: #e84393;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      text-transform: capitalize;
+      transition: .2s linear;
+    }
+
+    html {
+      font-size: 62.5%;
+      scroll-behavior: smooth;
+      scroll-padding-top: 6rem;
+      overflow-x: hidden;
+
+    }
+
+    /* section of buy book */
+    section {
+      padding: 2rem 9%;
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 4rem;
+      color: #333;
+      padding: 1rem;
+      margin: 2rem 0;
+      background-color: pink;
+
+    }
+
+    .heading span {
+      color: var(--pink);
+      padding-left: 4px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      border-radius: 5rem;
+      background-color: #333;
+      color: #fff;
+      padding: 2rem 4rem;
+      cursor: pointer;
+      font-size: 1.7rem;
+
+    }
+
+    .btn:hover {
+      background-color: #e84393;
+    }
+
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      /* background-color: rgb(15, 78, 78); */
+      padding: 2rem 9%;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+      justify-content: space-between;
+      box-shadow: 0 .5rem 1rem rgb(0, 0, 0, 0.1);
+    }
+
+    header .logo {
+      font-size: 3rem;
+      color: #333;
+      font-weight: bolder;
+    }
+
+    header .logo span {
+      color: var(--pink);
+    }
+
+    header .navbar a {
+      font-size: 2rem;
+      padding: 0 1.5rem;
+      color: #666;
+    }
+
+    header .navbar a:hover {
+      color: var(--pink);
+    }
+
+    header .icons a {
+      font-size: 3rem;
+      color: #333;
+      margin-left: 1.5rem;
+      padding-top: 4px;
+    }
+
+    header .icons a:hover {
+      color: var(--pink);
+    }
+
+    header #toggler {
+      display: none;
+    }
+
+    header .fa-bars {
+      font-size: 3rem;
+      color: #333;
+      border-radius: .5rem;
+      padding: .5rem 1.5rem;
+      cursor: pointer;
+      border: .1rem solid rgba(0, 0, 0, .2);
+      /* display: none; */
+    }
+
+    .home {
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('new2.jpeg');
+      background-image: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home .content {
+      max-width: 50rem;
+    }
+
+    .home .content h3 {
+      font-size: 6rem;
+      color: #76717e;
+
+    }
+
+    .home .content span {
+      font-size: 3.5rem;
+      font-optical-sizing: 3rem;
+      padding: 1rem;
+      color: #5c6e19;
+      line-height: 1.5;
+    }
+
+    .home .content p {
+      font-size: 2.5rem;
+      font-optical-sizing: 3rem;
+      padding-top: 1rem;
+      color: #9ab6a9;
+      line-height: 1.5;
+    }
+
+    .icons-container {
+      background: #eee;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+
+    }
+
+    .icons-container .icons {
+      background: #fff;
+      border: 1rem solid rgb(0, 0, 0, 0.1);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      flex-direction: 1 1 25rem;
+    }
+
+    .icons-container .icons img {
+      height: 5rem;
+      margin-right: 2rem;
+    }
+
+    .icons-container .icons h3 {
+      color: #2b6647;
+      padding-bottom: .5rem;
+      font-size: 1.5rem;
+    }
+
+    .icons-container .icons span {
+      color: #666;
+      font-size: 1.4rem;
+    }
+
+    .products .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer .box-container .box {
+      flex: 1 1 25rem;
+
+    }
+
+    .footer .box-container .box h3 {
+      color: #333;
+      font-size: 2.5rem;
+      padding: 1rem 0;
+    }
+
+    .footer .box-container .box a {
+
+      display: block;
+      color: #666;
+      font-size: 1.5rem;
+      padding: 1rem 0;
+    }
+
+    .footer .box-container .box a:hover {
+      color: var(--pink);
+      text-decoration: underline;
+
+    }
+
+    .footer .credit {
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      padding-top: 2.5rem;
+      font-size: 2rem;
+      color: #333;
+      border-top: .1rem solid rgba(0, 0, 0, .2);
+
+    }
+
+    .footer .credit span {
+      color: var(--pink);
+    }
+
+    /*Login-Form sectiom*/
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  
+  margin-top: 5%;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+/* Container adjustments for better alignment */
+.login-container {
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-image img {
+  width: 100%;
+  max-width: 327px;
+  border-radius: 8px 0 0 8px;
+}
+
+.login-form {
+  padding: 40px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form h2 {
+  color: #e84393;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="tel"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.recaptcha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  color: #333;
+  margin-right: 10%;
+}
+
+.submit-btn {
+  margin-top: 8px;
+  padding: 10px;
+  background-color: #e84393;
+  color: #fff;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 36%;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #d33f84;
+}
+
+.signup-option {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.signup-option a {
+  color: #e84393;
+  text-decoration: none;
+}
+
+.signup-option a:hover {
+  text-decoration: underline;
+}
+ /*End -Login-Form sectiom */
+
+
+
+
+
+
+
+
+
+    @media(max-width:991px) {
+
+      html {
+        font-size: 55%;
+      }
+
+      header {
+        padding: 2rem;
+      }
+
+      section {
+        padding: 2rem;
+      }
+
+      .home {
+        background-position: left;
+      }
+    }
+
+    @media(max-width:768px) {
+      header .fa-bars {
+        display: block;
+      }
+
+      header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #eee;
+        border-top: 1rem solid rgb(0, 0, 0, 0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      }
+
+      header #toggler:checked~.navbar {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+      }
+
+      header .navbar a {
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: #fff;
+        border: .1rem solid rgb(0, 0, 0, 0.1);
+        display: block;
+
+      }
+
+      .home .content h3 {
+        font-size: 5rem;
+      }
+
+      .home .content span {
+        font-size: 2.5rem;
+      }
+
+      .icons-container .icons h3 {
+        font-size: 2rem;
+      }
+
+      .icons-container .icons span {
+        font-size: 1.7rem;
+      }
+
+    }
+
+
+    @media(max-width:450px) {
+
+      html {
+        font-size: 50%;
+      }
+
+      .heading {
+        font-size: 3rem;
+      }
+
+    }
+
+    .form-sec {
+      background-image: url(/images/lib-bg3.jpg);
+
+    }
+
+    .regform {
+      margin: 15rem;
+
+      padding-top: 30px;
+      margin-left: 40%;
+      background-color: rgb(134, 179, 179);
+      display: inline-block;
+      height: 500px;
+      width: 400px;
+      border-radius: 20px;
+      opacity: 0.8;
+    }
+
+    input {
+      text-transform: none;
+    }
+
+    form {
+      padding: 7px 40px;
+    }
+
+    form label {
+      font-size: 14px;
+      color: #0a050e;
+      font-weight: bolder;
+    }
+
+    form input {
+      margin-top: 1rem;
+      margin-left: 2rem;
+      padding-top: 2px;
+      height: 3rem;
+      font-size: 20px;
+      border-radius: 4px;
+    }
+
+    #but {
+      margin-top: 1rem;
+      margin-left: 40%;
+      border-radius: 4px;
+      font-size: 17px;
+      height: 4rem;
+      width: 8rem;
+
+    }
+
+    form h3 {
+      font-size: 18px;
+      color: #8d1072;
+      padding-bottom: 1.6rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+
+    <a href="#" class="logo">BOOK<span>STORE</span></a>
+
+    <nav class="navbar">
+      <a href="new.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">register</a>
+
+      <span class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="profile.html" class="fa-solid fa-user"></a>
+        <a href="cart1.html" class="fas fa-shopping-cart"><span style="font-size: 15px;">yourCart</span></a>
+      </span>
+    </nav>
+  </header>
+
+  <!--Sign in Section  -->
+  <div class="login-container">
+    <div class="login-image">
+        <img src="./images/polroidBook.jpg" alt="The Polaroid Book">
+    </div>
+    <div class="login-form">
+        <h2>Register</h2>
+        <form id="registration-form">
+            <input type="text" id="name" placeholder="Enter Name" required>
+            <input type="email" id="email" placeholder="Email ID" required>
+            <input type="tel" id="phone" placeholder="Phone Number">
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+            
+
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+</div>
+
+
+
+  <!-- End Sign in Section  -->
+
+
+<!-- footer Section -->
+  <section class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>quick links </h3>
+        <a href="#">Home</a>
+        <a href="#">Cart</a>
+        <a href="#">Catalogue</a>
+        <a href="#">Login</a>
+        <a href="#">register</a>
+      </div>
+      <div class="box">
+        <h3>Social links </h3>
+        <a href="#">My account</a>
+        <a href="#">Order</a>
+        <a href="#">Favourite</a>
+      </div>
+
+      <div class="credit">Created by<span>Bimal Babu</span>|all right reserved</div>
+    </div>
+
+
+
+
+
+    <script src="https://kit.fontawesome.com/57f3a2da0a.js" crossorigin="anonymous"></script>
+    <!-- <script src="register.js"></script> -->
+  </section>
+
+
+
+
+
+  <script>
+    document.getElementById("registration-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Get form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        // Validate fields
+        if (!name || !email || !phone || !password || !confirmPassword) {
+            alert("All fields are required.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
+
+        // Creating user object
+    const user = {
+      name,
+      email,
+      phone,
+      password
+    };
+
+    // Retrieve existing users from localStorage or initialize an empty array
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Check if email already exists
+    const userExists = users.some(u => u.email === email);
+    if (userExists) {
+      alert("A user with this email already exists.");
+      return;
+    }
+
+    // Add new user to the users array
+    users.push(user);
+
+    // Save updated users array back to localStorage
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // Notify the user and redirect
+    alert("Registration successful!");
+    window.location.href = './login.html'; // Redirect to login page after successful registration
+
+    });
+</script>
+</body>
+
+</html>

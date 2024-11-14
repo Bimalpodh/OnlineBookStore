@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order - Delivery Address</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .order-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+
+    #qr-code {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .total-price {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Delivery Address</h1>
+  <div class="order-container">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" required>
+    </div>
+
+    <!-- Total price display -->
+    <div class="total-price" id="total-price">Total: ₹0</div>
+
+    <!-- QR Code display -->
+    <div id="qr-code"></div>
+  </div>
+  <div class="back">
+    <button><a href="cart1.html">back</a></button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  
+</body>
+
+</html>

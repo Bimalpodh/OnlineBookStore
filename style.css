@@ -1,0 +1,116 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-image: url("/images/lib-bg2.jpg");
+}
+.titbar{
+  display: flex;
+  flex-wrap: wrap;
+  height: 60px;
+  background-color: aqua;
+  
+}
+
+.lib{
+  color: rgb(159, 197, 202);
+  text-shadow: 2px 2px 3px  black;
+  padding: 3px;
+  margin-left: 5%;
+  margin-top: 7px;
+  font-size: 30px;
+  font-weight: 20px;
+  
+}
+.tit{
+  margin-left: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  
+}
+.tit-b{
+  padding: 6px  10px;
+  font-size: 22px;
+  font-weight: 20px;
+  margin-top: 10px;
+}
+a{
+  text-decoration: none
+}
+a:link, a:visited {
+  
+  color: black;
+  border: 2px solid rgb(199, 149, 12);
+  padding: 1px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: rgb(56, 169, 133);;
+  color: white;
+}
+/* main section start from her */
+.log-box{
+  margin-top: 10%;
+  margin-left: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+#log-id{
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 20px;
+}
+.std{
+  color: azure;
+  margin: 10px;
+  opacity: 0.87;
+}
+.tchr{
+  color: azure;
+  margin: 10px;
+  opacity: 0.87;
+
+}
+
+.stud-login{
+  background-color: rgb(82, 161, 161);
+  width:200px;
+  height: 200px;
+
+}
+.teach-login{
+  background-color: blue;
+  width:200px;
+  height: 200px;
+  
+}
+#form-id{
+  padding: 20px;
+}
+#st-log{
+  margin-left: 30%;
+  margin-top:10px ;
+  height: 30px;
+  width: 70px;
+  border-radius: 8px;
+  border-color: aliceblue;
+  background-color: rgb(226, 125, 43);
+  text-align: center;
+}
+input{
+  margin-left: 20px;
+  height: 20px;
+  border: 8px;
+  border-radius: 3px;
+  padding-left: 8px;
+}
+foot{
+  margin-bottom: 4px;
+  margin-top: 80%;
+}

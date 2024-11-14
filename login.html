@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+   <style>
+
+    
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+:root{
+  --pink:#e84393;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  outline: none; border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: .2s linear;
+}
+
+html{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  overflow-x: hidden;
+
+}
+
+/* section of buy book */
+section{
+  padding: 2rem 9%;
+}
+.heading{
+  text-align: center;
+  font-size: 4rem;
+  color: #333;
+  padding: 1rem;
+  margin: 2rem 0;
+  background-color: pink;
+
+}
+.heading span{
+  color: var(--pink);
+  padding-left: 4px;
+}
+
+.btn{
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background-color: #333;
+  color: #fff;
+  padding: 2rem 4rem;
+  cursor: pointer;
+  font-size: 1.7rem;
+
+}
+.btn:hover{
+  background-color: #e84393;
+}
+
+
+header{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  /* background-color: rgb(15, 78, 78); */
+  padding: 2rem 9%;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  justify-content: space-between;
+  box-shadow: 0 .5rem 1rem rgb(0, 0, 0,0.1);
+}
+header .logo{
+  font-size: 3rem;
+  color: #333;
+  font-weight: bolder;
+}
+
+header .logo span{
+  color: var(--pink);
+}
+header .navbar a{
+  font-size: 2rem;
+  padding:0 1.5rem ;
+  color: #666;
+}
+header .navbar a:hover{
+  color: var(--pink);
+}
+header .icons a{
+  font-size:3rem;
+  color:#333 ;
+  margin-left:1.5rem ;
+  padding-top: 4px;
+}
+header .icons a:hover{
+  color: var(--pink);
+}
+
+header #toggler{
+  display:none ;
+}
+
+header .fa-bars{
+  font-size: 3rem;
+  color: #333;
+  border-radius: .5rem;
+  padding: .5rem 1.5rem;
+  cursor: pointer;
+  border: .1rem solid rgba(0,0,0,.2);
+  /* display: none; */
+}
+.home{
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('images/new2.jpeg') ;
+  background-image: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.home .content{
+  max-width: 50rem;
+}
+
+.home .content h3{
+  font-size: 6rem;
+  color: #76717e;
+  
+}
+.home .content span{
+  font-size: 3.5rem;
+  font-optical-sizing: 3rem;
+  padding: 1rem;
+  color: #5c6e19;
+  line-height: 1.5;
+}
+.home .content p{
+  font-size: 2.5rem;
+  font-optical-sizing: 3rem;
+  padding-top: 1rem;
+  color: #9ab6a9;
+  line-height: 1.5;
+}
+
+.icons-container{
+  background:#eee ;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  
+}
+.icons-container .icons{
+  background: #fff;
+  border: 1rem solid rgb(0, 0, 0,0.1);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: 1 1 25rem;
+}
+
+.icons-container .icons img{
+  height: 5rem;
+  margin-right: 2rem;
+}
+.icons-container .icons h3{
+  color: #2b6647;
+  padding-bottom: .5rem;
+  font-size: 1.5rem;
+}
+.icons-container .icons span{
+  color: #666;
+  font-size: 1.4rem;
+}
+
+.log-box{
+
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-left: 10%;
+}
+
+
+.tchr{
+  color: azure;
+  margin: 10px;
+  opacity: 0.87;
+
+}
+
+.stud-login{
+  
+  background-color: rgb(82, 161, 161);
+  width:260px;
+  height: 200px;
+  margin-left: 10%;
+  position: relative;
+
+}
+.teach-login{
+  background-color: blue;
+  width:260px;
+  height: 200px;
+  
+}
+#form-id{
+  padding: 20px;
+}
+#st-log{
+  margin-left: 30%;
+  margin-top:30px ;
+  height: 30px;
+  width: 70px;
+  border-radius: 8px;
+  border-color: aliceblue;
+  background-color: rgb(226, 125, 43);
+  text-align: center;
+}
+input{
+  margin-left: 20px;
+  height: 20px;
+  border: 8px;
+  border-radius: 3px;
+  padding-left: 8px;
+}
+
+/*Footer Section*/
+
+.footer .box-container{
+  display: flex;
+  flex-wrap:wrap ;
+  gap: 1rem;
+}
+
+.footer .box-container .box{
+  flex: 1  1 25rem;
+
+}
+.footer .box-container .box h3{
+  color: #333;
+  font-size: 2.5rem;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a{
+
+display: block;  color: #666;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
+.footer .box-container .box a:hover{
+  color: var(--pink);
+  text-decoration: underline;
+
+}
+.footer .credit{
+  text-align: center;
+  padding:1.5rem ;
+  margin-top: 1.5rem;
+  padding-top: 2.5rem;
+  font-size: 2rem;
+  color: #333;
+  border-top: .1rem solid rgba(0,0,0,.2);
+
+}
+.footer .credit span{
+  color: var(--pink);
+}
+
+ /*Login-Form sectiom*/
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  
+  margin-top: 5%;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.login-container {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: 30%;
+}
+
+.login-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  padding-left:2px;
+  border-radius: 10px;
+}
+input {
+  text-transform: none;
+}
+.login-form {
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form h2 {
+  color: #e84393;
+  margin-bottom: 17%;
+  font-size: xx-large;
+}
+
+.login-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  border-radius: 6px;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.form-options label {
+  display: flex;
+  align-items: center;
+  color: #666;
+}
+
+.form-options a {
+  color: #e84393;
+  text-decoration: none;
+}
+
+.form-options a:hover {
+  text-decoration: underline;
+}
+
+.recaptcha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+  color: #333;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e84393;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  background-color: #d33f84;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e84393;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #e84393;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.google-btn:hover {
+  background-color: #fce4ec;
+}
+
+.signup-option {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.signup-option a {
+  color: #e84393;
+  text-decoration: none;
+}
+
+.signup-option a:hover {
+  text-decoration: underline;
+}
+ /*End -Login-Form sectiom */
+  
+   </style>
+  </head>
+  <body>
+    <!-- this is head Section -->
+    <header>
+    
+      <input type="checkbox" name="" id="toggler">
+      <label for="toggler" class="fas fa-bars"></label>
+  
+      <a href="#" class="logo">BOOK<span>STORE</span></a>
+  
+      <nav class="navbar">
+        <a href="new.html">Home</a>
+        <a href="login.html ">Login</a>
+        <a href="register.html">register</a>
+    
+        <span class="icons">
+          <a href="#" class="fas fa-heart"></a>
+          <a href="#" class="fa-solid fa-user"></a>
+          <a href="cart1.html" id="mycart" class="fas fa-shopping-cart"><span style="font-size: 15px;">yourCart</span></a>
+        </span>
+      </nav>
+    </header>
+    <!-- Login Section -->
+    <div class="login-container">
+      <div class="login-image">
+        <img src="./images/polroidBook.jpg" alt="The Polaroid Book">
+      </div>
+      <div class="login-form">
+        <h2>Login</h2>
+        <form>
+          <label for="email">Email id</label>
+          <input type="email" id="email" placeholder="Email id" required>
+  
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password" required>
+  
+          <div class="form-options">
+            <label><input type="checkbox" id="remember-me"> Remember Me</label>
+            <a href="#">Forgot Password</a>
+          </div>
+  
+          <button type="submit" class="login-btn"><!--<a href="new.html" style="text-decoration: none; color:#f2f2f2; font-size:20px">Login</a>-->login</button>
+  
+          <button type="button" class="google-btn">
+            <i class="fab fa-google"></i> Sign In With Google
+          </button>
+        </form>
+  
+        <p class="signup-option">Don't have an Account? <a href="register.html">Sign Up</a></p>
+      </div>
+    </div>
+     <!-- end of login section -->
+    
+   <!-- this is footer Section Section -->
+
+    <section class="footer">
+
+      <div class="box-container">
+      <div class="box">
+        <h3>quick links </h3>
+          <a href="#">Home</a>
+          <a href="#">Cart</a>
+          <a href="#">Catalogue</a>
+          <a href="#">Login</a>
+          <a href="#">register</a>
+      </div>
+      <div class="box">
+        <h3>Social links </h3>
+          <a href="#">My account</a>
+          <a href="#">Order</a>
+          <a href="#">Favourite</a>
+      </div>
+
+      <div class="credit">Created by<span>Bimal Babu</span>|all right reserved</div>
+    </div>
+
+
+    </section>
+
+
+
+    <script src="https://kit.fontawesome.com/57f3a2da0a.js" crossorigin="anonymous"></script>
+
+    <script>
+      document.querySelector(".login-form form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent form submission
+    
+        // Get the user-entered email and password
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+    
+        // Retrieve and parse the users array from localStorage
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        let isAuthenticated = false; // To keep track if user is authenticated
+        let userName = ""; // To store the name of the authenticated user
+    
+        // Loop through each user object in the array
+        users.forEach(user => {
+          if (user.email === email && user.password === password) {
+            isAuthenticated = true;
+            userName = user.name;
+          }
+        });
+    
+        if (isAuthenticated) {
+          // Storing the username in localStorage and redirect if a match is found
+          localStorage.setItem("username", userName);
+          window.location.href = "new.html";
+        } else {
+          // Showing  an alert if no match is found
+          alert("Invalid email or password. Please try again.");
+        }
+      });
+    </script>
+    
+    
+  </body> 
+</html>

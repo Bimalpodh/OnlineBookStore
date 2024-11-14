@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        /* Basic CSS styles for the cart page */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .cart-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cart-item-price {
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        .total-price {
+            text-align: right;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            padding-top: 20px;
+        }
+        .ordersection {
+            display: flex;
+            justify-content: center;
+        }
+        #order {
+            color: #fff;
+            background-color: #888;
+            height: 50px;
+            width: 120px;
+            font-size: 20px;
+            border-radius: 6px;
+            border: 2px none;
+        }
+        #order:hover {
+            box-shadow: 0 4px 8px #000f;
+            transform: scale(1.06);
+        }
+        #back {
+            margin-left: 3%; 
+            width: 80px; 
+            background-color: #ddd; 
+            border: none; 
+            border-radius: 6px; 
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Cart</h1>
+    <div class="cart-container" id="cart-container">
+        <!-- Cart items will be inserted here by JavaScript -->
+    </div>
+    <div class="total-price" id="total-price">
+        Total: ₹0
+    </div>
+
+    <!-- Order section -->
+    <div class="ordersection">
+        <button id="order">Order</button>
+        <button id="back"> <a href="new.html" style="text-decoration: none; color: rgb(148, 45, 19);">Back</a></button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cartContainer = document.getElementById("cart-container");
+            const totalPriceElement = document.getElementById("total-price");
+
+            // Retrieve cart items from localStorage
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+            } else {
+                cart.forEach(book => {
+                    // Calculate total price
+                    const price = parseFloat(book.price.replace("₹:", ""));
+                    total += price;
+
+                    // Create HTML structure for each cart item
+                    const cartItem = document.createElement("div");
+                    cartItem.classList.add("cart-item");
+                    cartItem.innerHTML = `
+                        <img src="${book.imageSrc}" alt="${book.title}">
+                        <div class="cart-item-info">
+                            <div class="cart-item-title">${book.title}</div>
+                            <div class="cart-item-price">Price: ₹${price.toFixed(2)}</div>
+                            <div class="cart-item-discount">Discount: ${book.discount}</div>
+                        </div>
+                    `;
+
+                    // Append to cart container
+                    cartContainer.appendChild(cartItem);
+                });
+
+                // Update total price
+                totalPriceElement.textContent = `Total: ₹${total.toFixed(2)}`;
+            }
+
+            // Add event listener to the order button
+            document.getElementById("order").addEventListener("click", function () {
+                // Store the entire cart data and total amount in localStorage
+                const cartData = {
+                    items: cart,
+                    totalAmount: total.toFixed(2)
+                };
+                localStorage.setItem("orderData", JSON.stringify(cartData)); // Save as an object
+                window.location.href = "address.html"; // Redirect to the order page
+            });
+        });
+    </script>
+    <script src="address.js"></script>
+</body>
+</html>
